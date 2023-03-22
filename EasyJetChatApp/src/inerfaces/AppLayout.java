@@ -65,7 +65,24 @@ public class AppLayout extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         edit_profile_panel = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         manage_users_panel = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
@@ -358,29 +375,116 @@ public class AppLayout extends javax.swing.JFrame {
 
         jPanel13.setBackground(new java.awt.Color(51, 204, 0));
 
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setText("Welcome Admin");
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Groups Active.png"))); // NOI18N
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Create Groups Active.png"))); // NOI18N
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/users active.png"))); // NOI18N
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/log out.png"))); // NOI18N
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 353, Short.MAX_VALUE)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel13Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 30, Short.MAX_VALUE)))
+                        .addContainerGap(53, Short.MAX_VALUE))))
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(jLabel14)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jLabel14)
+                .addGap(47, 47, 47)
+                .addComponent(jLabel13)
+                .addGap(58, 58, 58)
+                .addComponent(jLabel9)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel11)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel10)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel12)
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         jPanel14.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 939, Short.MAX_VALUE)
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
-        );
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("EDIT PROFILE");
+        jPanel14.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 100, 250, -1));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("Edit Profile");
+        jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        jLabel16.setMaximumSize(new java.awt.Dimension(4, 4));
+        jLabel16.setMinimumSize(new java.awt.Dimension(4, 4));
+        jLabel16.setPreferredSize(new java.awt.Dimension(4, 4));
+        jPanel14.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 228, 190, 190));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Username");
+        jLabel17.setMaximumSize(new java.awt.Dimension(81, 22));
+        jLabel17.setMinimumSize(new java.awt.Dimension(81, 22));
+        jLabel17.setPreferredSize(new java.awt.Dimension(81, 22));
+        jPanel14.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 200, 89, -1));
+        jPanel14.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 416, 332, 30));
+        jPanel14.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 240, 332, 30));
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("Nik name");
+        jLabel19.setMaximumSize(new java.awt.Dimension(81, 22));
+        jLabel19.setMinimumSize(new java.awt.Dimension(81, 22));
+        jLabel19.setPreferredSize(new java.awt.Dimension(81, 22));
+        jPanel14.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 288, 89, -1));
+        jPanel14.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 328, 332, 30));
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Password");
+        jLabel20.setMaximumSize(new java.awt.Dimension(81, 22));
+        jLabel20.setMinimumSize(new java.awt.Dimension(81, 22));
+        jLabel20.setPreferredSize(new java.awt.Dimension(81, 22));
+        jPanel14.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 376, 89, -1));
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jButton1.setText("SUBMIT");
+        jPanel14.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 518, 320, 44));
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_user_20px_1.png"))); // NOI18N
+        jPanel14.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 228, 43, 56));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_invisible_20px_1.png"))); // NOI18N
+        jPanel14.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 400, 43, 56));
 
         javax.swing.GroupLayout edit_profile_panelLayout = new javax.swing.GroupLayout(edit_profile_panel);
         edit_profile_panel.setLayout(edit_profile_panelLayout);
@@ -431,6 +535,15 @@ public class AppLayout extends javax.swing.JFrame {
 
         manage_users_panel.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 550, 620));
 
+        jLayeredPane1.setLayer(login_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(register_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(admin_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(create_chat_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(list_groups_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(chat_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(edit_profile_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(manage_users_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -475,14 +588,6 @@ public class AppLayout extends javax.swing.JFrame {
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(manage_users_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jLayeredPane1.setLayer(login_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(register_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(admin_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(create_chat_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(list_groups_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(chat_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(edit_profile_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(manage_users_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 620));
 
@@ -540,14 +645,28 @@ public class AppLayout extends javax.swing.JFrame {
     private javax.swing.JPanel create_chat_panel;
     private javax.swing.JLabel disable;
     private javax.swing.JPanel edit_profile_panel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -565,6 +684,9 @@ public class AppLayout extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel linkreg;
     private javax.swing.JPanel list_groups_panel;
     private javax.swing.JPanel login_panel;
