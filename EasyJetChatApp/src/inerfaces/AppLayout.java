@@ -38,8 +38,18 @@ public class AppLayout extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         textusername = new javax.swing.JTextField();
         textpassword = new javax.swing.JTextField();
+        user = new javax.swing.JLabel();
+        disable = new javax.swing.JLabel();
+        show = new javax.swing.JLabel();
+        btnlogin = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        linkreg = new javax.swing.JLabel();
+        text_login_errors = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         register_panel = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        signup_profile_pic = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         admin_panel = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -116,31 +126,54 @@ public class AppLayout extends javax.swing.JFrame {
                 textusernameActionPerformed(evt);
             }
         });
-        jPanel2.add(textusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 260, -1));
+        jPanel2.add(textusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 260, 40));
 
         textpassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textpasswordActionPerformed(evt);
             }
         });
-        jPanel2.add(textpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 260, -1));
+        jPanel2.add(textpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 260, 40));
+
+        user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_user_20px_1.png"))); // NOI18N
+        jPanel2.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 40, 50));
+
+        disable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_invisible_20px_1.png"))); // NOI18N
+        jPanel2.add(disable, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 60, 50));
+
+        show.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_eye_20px_1.png"))); // NOI18N
+        jPanel2.add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 60, 50));
+
+        btnlogin.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        btnlogin.setForeground(new java.awt.Color(153, 0, 0));
+        btnlogin.setText("LOGIN");
+        jPanel2.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 240, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel6.setText("Don't you have an account ? ");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, -1, -1));
+
+        linkreg.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        linkreg.setText("REGISTER");
+        jPanel2.add(linkreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, -1, -1));
+        jPanel2.add(text_login_errors, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 240, 30));
+
+        jLabel7.setText("-------------------------------------------------");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 260, 30));
+
+        jLabel8.setText("-------------------------------------------------------------");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 286, 260, 30));
 
         login_panel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 590, 620));
 
         register_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
-        );
+        signup_profile_pic.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
+        signup_profile_pic.setText("             Select Profile Picture");
+        jPanel3.add(signup_profile_pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 350, 370));
 
         register_panel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 620));
 
@@ -502,14 +535,19 @@ public class AppLayout extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel admin_panel;
+    private javax.swing.JButton btnlogin;
     private javax.swing.JPanel chat_panel;
     private javax.swing.JPanel create_chat_panel;
+    private javax.swing.JLabel disable;
     private javax.swing.JPanel edit_profile_panel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -527,12 +565,17 @@ public class AppLayout extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel linkreg;
     private javax.swing.JPanel list_groups_panel;
     private javax.swing.JPanel login_panel;
     private javax.swing.JPanel manage_users_panel;
     private javax.swing.JPanel register_panel;
+    private javax.swing.JLabel show;
+    private javax.swing.JLabel signup_profile_pic;
+    private javax.swing.JLabel text_login_errors;
     private javax.swing.JTextField textpassword;
     private javax.swing.JTextField textusername;
+    private javax.swing.JLabel user;
     // End of variables declaration//GEN-END:variables
 
    
