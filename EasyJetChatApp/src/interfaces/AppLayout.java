@@ -9,10 +9,13 @@ import dbmanager.DBManager;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import pojos.Groups;
@@ -62,6 +65,29 @@ public class AppLayout extends javax.swing.JFrame {
         return errors;
     }
     
+    
+    public ArrayList<String> validateform(String email, String username,String password) {
+
+        ArrayList<String> errors = new ArrayList<>();
+
+        if (email.matches("^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$") == false) {
+            errors.add("Invalid email");
+        }
+
+        if ("Username".equals(username) || "".equals(username)) {
+            errors.add("Username is requird");
+        }
+
+        if ("Password".equals(password) || "".equals(password)) {
+            errors.add("Password is requird");
+        }
+
+        if (password.length() < 4) {
+            errors.add("Password must contain more than 4 characters");
+        }
+
+        return errors;
+    }
     
     
     /**
@@ -335,9 +361,19 @@ public class AppLayout extends javax.swing.JFrame {
         jPanel4.add(textregpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 392, 310, 40));
 
         show2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_eye_20px_1.png"))); // NOI18N
-        jPanel4.add(show2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 60, 60));
+        show2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                show2MouseClicked(evt);
+            }
+        });
+        jPanel4.add(show2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 60, 60));
 
         disable2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_invisible_20px_1.png"))); // NOI18N
+        disable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                disable2MouseClicked(evt);
+            }
+        });
         jPanel4.add(disable2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 60, 60));
 
         jLabel29.setBackground(new java.awt.Color(51, 51, 51));
@@ -347,6 +383,11 @@ public class AppLayout extends javax.swing.JFrame {
         btnreg.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btnreg.setForeground(new java.awt.Color(0, 51, 51));
         btnreg.setText("REGISTER");
+        btnreg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnregMouseClicked(evt);
+            }
+        });
         btnreg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnregActionPerformed(evt);
@@ -963,6 +1004,59 @@ public class AppLayout extends javax.swing.JFrame {
         show.setVisible(true);
         show.setEnabled(true);
     }//GEN-LAST:event_disableMouseClicked
+
+    private void show2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_show2MouseClicked
+        textregpassword.setEchoChar((char)8226);
+        disable2.setVisible(true);
+        disable2.setEnabled(true);
+        show2.setVisible(false);
+        show2.setEnabled(false);
+    }//GEN-LAST:event_show2MouseClicked
+
+    private void disable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_disable2MouseClicked
+        textregpassword.setEchoChar((char)0);
+        disable2.setVisible(false);
+        disable2.setEnabled(false);
+        show2.setVisible(true);
+        show2.setEnabled(true);
+    }//GEN-LAST:event_disable2MouseClicked
+
+    private void btnregMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnregMouseClicked
+        String email = textregemail.getText();
+        String username = textregusername.getText();
+        String nickname = textregnickname.getText();
+        String password = textregpassword.getText();
+
+        //error array
+        ArrayList<String> error = validateform(email, username, password);
+
+        if (error.isEmpty() == false) {
+            text_reg_errors.setText(error.get(0));
+        } else {
+            text_reg_errors.setText(null);
+            //intsert details
+            byte[] img = null;
+            ImageIcon avatar = (ImageIcon) signup_profile_pic.getIcon();
+            if (avatar != null) {
+                try {
+                    //                img = this.encodeToString(this.ImageIconToBufferedImage(avatar),"jpg");
+                    BufferedImage bImage = ImageIconToBufferedImage(avatar);
+                    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                    ImageIO.write(bImage, "jpg", bos);
+                    img = bos.toByteArray();
+
+                } catch (IOException ex) {
+                    Logger.getLogger(AppLayout.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+
+            if (DBManager.getDBM().insert(img, email, username,nickname, password)) {
+                text_reg_errors.setText("You Registered Successfully");
+            }
+
+        }
+    }//GEN-LAST:event_btnregMouseClicked
 
     /**
      * @param args the command line arguments
