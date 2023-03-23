@@ -188,6 +188,11 @@ public class AppLayout extends javax.swing.JFrame {
 
         linkreg.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         linkreg.setText("REGISTER");
+        linkreg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                linkregMouseClicked(evt);
+            }
+        });
         jPanel2.add(linkreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, -1, -1));
         jPanel2.add(text_login_errors, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 240, 30));
 
@@ -690,6 +695,12 @@ public class AppLayout extends javax.swing.JFrame {
         register_panel.setVisible(false);
         login_panel.setVisible(true);
     }//GEN-LAST:event_linklogMouseClicked
+
+    private void linkregMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_linkregMouseClicked
+        login_panel.setVisible(false);
+        register_panel.setVisible(true);
+        
+    }//GEN-LAST:event_linkregMouseClicked
 
     /**
      * @param args the command line arguments
