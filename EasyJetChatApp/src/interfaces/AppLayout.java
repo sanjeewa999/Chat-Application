@@ -137,20 +137,20 @@ public class AppLayout extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 0, 102));
         jLabel2.setText("EasyJetChat");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 190, 50));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 190, 50));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 0, 102));
         jLabel3.setText("Java Based Chat Application");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 102, 255));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 0, 153));
         jLabel4.setText("Password :");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 102, 255));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 0, 153));
         jLabel5.setText("User Name :");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
@@ -177,16 +177,23 @@ public class AppLayout extends javax.swing.JFrame {
         show.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_eye_20px_1.png"))); // NOI18N
         jPanel2.add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 60, 50));
 
-        btnlogin.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        btnlogin.setForeground(new java.awt.Color(153, 0, 0));
+        btnlogin.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnlogin.setForeground(new java.awt.Color(0, 51, 51));
         btnlogin.setText("LOGIN");
-        jPanel2.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 240, -1));
+        btnlogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnloginActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 120, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(102, 0, 255));
         jLabel6.setText("Don't you have an account ? ");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, -1, -1));
 
         linkreg.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        linkreg.setForeground(new java.awt.Color(102, 0, 255));
         linkreg.setText("REGISTER");
         linkreg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -206,7 +213,7 @@ public class AppLayout extends javax.swing.JFrame {
 
         register_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setBackground(new java.awt.Color(204, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         signup_profile_pic.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
@@ -215,31 +222,31 @@ public class AppLayout extends javax.swing.JFrame {
 
         register_panel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 620));
 
-        jPanel4.setBackground(new java.awt.Color(204, 255, 153));
+        jPanel4.setBackground(new java.awt.Color(204, 255, 204));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(102, 0, 51));
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(204, 0, 102));
         jLabel22.setText("Registration Form");
-        jPanel4.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 190, -1));
+        jPanel4.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 280, -1));
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(153, 0, 153));
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(51, 0, 153));
         jLabel23.setText("User Name");
         jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
-        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(153, 0, 153));
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(51, 0, 153));
         jLabel24.setText("Nick Name");
         jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
-        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(153, 0, 153));
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(51, 0, 153));
         jLabel25.setText("Password");
         jPanel4.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
 
-        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(153, 0, 153));
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(51, 0, 153));
         jLabel26.setText("E-Mail");
         jPanel4.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
         jPanel4.add(textregemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 310, 40));
@@ -263,7 +270,7 @@ public class AppLayout extends javax.swing.JFrame {
         jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, 60, 60));
 
         btnreg.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btnreg.setForeground(new java.awt.Color(0, 0, 102));
+        btnreg.setForeground(new java.awt.Color(0, 51, 51));
         btnreg.setText("REGISTER");
         btnreg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,7 +279,7 @@ public class AppLayout extends javax.swing.JFrame {
         });
         jPanel4.add(btnreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 230, -1));
 
-        linklog.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        linklog.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         linklog.setForeground(new java.awt.Color(102, 0, 255));
         linklog.setText("Login");
         linklog.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -280,9 +287,9 @@ public class AppLayout extends javax.swing.JFrame {
                 linklogMouseClicked(evt);
             }
         });
-        jPanel4.add(linklog, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 560, -1, -1));
+        jPanel4.add(linklog, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 560, -1, -1));
 
-        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(102, 0, 255));
         jLabel28.setText("Do You Have an Account ? ");
         jPanel4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, -1, -1));
@@ -701,6 +708,10 @@ public class AppLayout extends javax.swing.JFrame {
         register_panel.setVisible(true);
         
     }//GEN-LAST:event_linkregMouseClicked
+
+    private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnloginActionPerformed
 
     /**
      * @param args the command line arguments
