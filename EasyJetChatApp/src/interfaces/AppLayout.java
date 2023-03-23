@@ -629,13 +629,13 @@ public class AppLayout extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            AppLayout.util.logging.Logger.getLogger(AppLayout.class.getName()).log(AppLayout.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AppLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            AppLayout.util.logging.Logger.getLogger(AppLayout.class.getName()).log(AppLayout.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AppLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            AppLayout.util.logging.Logger.getLogger(AppLayout.class.getName()).log(AppLayout.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AppLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            AppLayout.util.logging.Logger.getLogger(AppLayout.class.getName()).log(AppLayout.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AppLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
