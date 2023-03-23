@@ -720,7 +720,7 @@ public class AppLayout extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        AppLayout.awt.EventQueue.invokeLater(new Runnable() {
+        Java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AppLayout().setVisible(true);
             }
@@ -805,4 +805,4 @@ public class AppLayout extends javax.swing.JFrame {
     private javax.swing.JLabel user;
     // End of variables declaration//GEN-END:variables
 
-   
+}  
