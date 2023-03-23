@@ -5,11 +5,26 @@
  */
 package interfaces;
 
+import dbmanager.DBManager;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import pojos.Groups;
+import pojos.Users;
+
 /**
  *
  * @author ASUS
  */
 public class AppLayout extends javax.swing.JFrame {
+    
+    int id;
 
     /**
      * Creates new form java
@@ -18,6 +33,37 @@ public class AppLayout extends javax.swing.JFrame {
         initComponents();
     }
 
+    public ImageIcon toImageIcon(byte[] img) {
+        BufferedImage Imgavatar;
+        ImageIcon avatar = null;
+        try {
+            ByteArrayInputStream bis = new ByteArrayInputStream(img);
+            Imgavatar = ImageIO.read(bis);
+            if (Imgavatar != null) {
+                avatar = new ImageIcon(Imgavatar);
+            }
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        return avatar;
+    }
+    
+    public ArrayList<String> validatelogin(String username, String password) {
+        ArrayList<String> errors = new ArrayList<>();
+
+        if ("Username".equals(username) || "".equals(username)) {
+            errors.add("Username is requird");
+        }
+
+        if ("Password".equals(password) || "".equals(password)) {
+            errors.add("Password is requird");
+        }
+
+        return errors;
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -185,14 +231,29 @@ public class AppLayout extends javax.swing.JFrame {
         jPanel2.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 40, 50));
 
         disable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_invisible_20px_1.png"))); // NOI18N
-        jPanel2.add(disable, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 60, 50));
+        disable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                disableMouseClicked(evt);
+            }
+        });
+        jPanel2.add(disable, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 60, 50));
 
         show.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_eye_20px_1.png"))); // NOI18N
+        show.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showMouseClicked(evt);
+            }
+        });
         jPanel2.add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 60, 50));
 
         btnlogin.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btnlogin.setForeground(new java.awt.Color(0, 51, 51));
         btnlogin.setText("LOGIN");
+        btnlogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnloginMouseClicked(evt);
+            }
+        });
         btnlogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnloginActionPerformed(evt);
@@ -360,7 +421,7 @@ public class AppLayout extends javax.swing.JFrame {
                 .addComponent(link_all_users)
                 .addGap(76, 76, 76)
                 .addComponent(logout)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(204, 255, 204));
@@ -395,7 +456,7 @@ public class AppLayout extends javax.swing.JFrame {
         admin_panelLayout.setVerticalGroup(
             admin_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
             .addGroup(admin_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(admin_panelLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -403,7 +464,7 @@ public class AppLayout extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jPanel7.setBackground(new java.awt.Color(51, 0, 51));
+        jPanel7.setBackground(new java.awt.Color(204, 255, 255));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -416,7 +477,7 @@ public class AppLayout extends javax.swing.JFrame {
             .addGap(0, 620, Short.MAX_VALUE)
         );
 
-        jPanel8.setBackground(new java.awt.Color(153, 255, 0));
+        jPanel8.setBackground(new java.awt.Color(204, 255, 204));
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -444,7 +505,7 @@ public class AppLayout extends javax.swing.JFrame {
             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel9.setBackground(new java.awt.Color(204, 0, 204));
+        jPanel9.setBackground(new java.awt.Color(204, 255, 255));
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -457,7 +518,7 @@ public class AppLayout extends javax.swing.JFrame {
             .addGap(0, 620, Short.MAX_VALUE)
         );
 
-        jPanel10.setBackground(new java.awt.Color(0, 255, 0));
+        jPanel10.setBackground(new java.awt.Color(204, 255, 204));
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -485,7 +546,7 @@ public class AppLayout extends javax.swing.JFrame {
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel11.setBackground(new java.awt.Color(0, 204, 51));
+        jPanel11.setBackground(new java.awt.Color(204, 255, 255));
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -498,7 +559,7 @@ public class AppLayout extends javax.swing.JFrame {
             .addGap(0, 620, Short.MAX_VALUE)
         );
 
-        jPanel12.setBackground(new java.awt.Color(102, 102, 0));
+        jPanel12.setBackground(new java.awt.Color(204, 255, 204));
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -658,9 +719,10 @@ public class AppLayout extends javax.swing.JFrame {
                 .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        manage_users_panel.setBackground(new java.awt.Color(204, 255, 255));
         manage_users_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel15.setBackground(new java.awt.Color(51, 51, 0));
+        jPanel15.setBackground(new java.awt.Color(204, 255, 255));
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -675,7 +737,7 @@ public class AppLayout extends javax.swing.JFrame {
 
         manage_users_panel.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 620));
 
-        jPanel16.setBackground(new java.awt.Color(51, 0, 153));
+        jPanel16.setBackground(new java.awt.Color(204, 255, 204));
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -781,6 +843,126 @@ public class AppLayout extends javax.swing.JFrame {
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnloginActionPerformed
+
+    private void btnloginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnloginMouseClicked
+        String user_name = textusername.getText();
+        String user_pwd = textpassword.getText();
+
+        ArrayList<String> error = validatelogin(user_name, user_pwd);
+
+        if (error.isEmpty() == false) {
+            text_login_errors.setText(error.get(0));
+        } else {
+
+            List data = DBManager.getDBM().loginHandler(user_name, user_pwd);
+            Iterator i = data.iterator();
+            if (i.hasNext()) {
+                Users user = (Users) i.next();
+
+                String email = user.getEmail();
+                String username = user.getUsername();
+                String nickname = user.getNickname();
+                String password = user.getPassword();
+                byte[] profile_image = user.getProfileImage();
+                id = user.getId();
+
+      
+                edit_username.setText(username);
+                edit_nickname.setText(nickname);
+                edit_password.setText(password);
+
+                if(profile_image != null){
+
+                    ImageIcon imageicon = toImageIcon(profile_image);
+
+                    ImageIcon iconresized1 = new ImageIcon(imageicon.getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT));
+                    img_profile.setIcon(iconresized1);
+                    img_profile2.setIcon(iconresized1);
+                    img_profile3.setIcon(iconresized1);
+                    img_profile4.setIcon(iconresized1);
+                    img_profile5.setIcon(iconresized1);
+                    img_profile6.setIcon(iconresized1);
+
+                    ImageIcon iconresized2 = new ImageIcon(imageicon.getImage().getScaledInstance(150, 150, Image.SCALE_DEFAULT));
+                    edit_profile_image.setIcon(iconresized2);
+                }
+
+                if (user.getUserType().equalsIgnoreCase("admin")) {
+                    //admin user
+
+                    text_admin_username.setText("Welcome " + username);
+                    text_admin_username2.setText("Welcome " + username);
+                    text_admin_username3.setText("Welcome " + username);
+                    
+                   List users = DBManager.getDBM().get_all_users();
+            
+                    for (Iterator iterator = users.iterator(); iterator.hasNext();) {
+                        
+                        Users next = (Users) iterator.next();
+                        String del_userid =next.getId().toString(); 
+                        String del_username = next.getUsername();
+ 
+                        userlist1.addItem(del_userid +"- "+ del_username);
+
+                    }
+                    
+                    List groups = DBManager.getDBM().get_chat_groups();
+
+                    for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+                        
+                        Groups next = (Groups) iterator.next();
+                        String del_groupid =next.getId().toString(); 
+                        String del_groupname = next.getName();
+
+                        
+                    }
+                    
+
+                    
+
+                    login_panel.setVisible(false);
+                    load_admin_group(true);
+                    admin_panel.setVisible(true);
+
+                } else{
+                    //Normal user
+
+                    text_user_username.setText("Welcome " + username);
+                    text_user_username1.setText("Welcome " + username);
+                    text_user_username2.setText("Welcome " + username);
+
+                    me = new ChatClient(user.getId(), user.getUsername(), user.getNickname(), user.getEmail());
+
+                    load_client_groups();
+                    this.start_client();
+                    login_panel.setVisible(false);
+                    list_groups_panel.setVisible(true);
+
+                }
+
+            } else {
+                System.out.println("Username or Password Incorrect");
+                text_login_errors.setText("Username or Password Incorrect");
+            }
+
+        }
+    }//GEN-LAST:event_btnloginMouseClicked
+
+    private void showMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showMouseClicked
+        textpassword.setEchoChar((char)8226);
+        disable.setVisible(true);
+        disable.setEnabled(true);
+        show.setVisible(false);
+        show.setEnabled(false);
+    }//GEN-LAST:event_showMouseClicked
+
+    private void disableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_disableMouseClicked
+        textpassword.setEchoChar((char)0);
+        disable.setVisible(false);
+        disable.setEnabled(false);
+        show.setVisible(true);
+        show.setEnabled(true);
+    }//GEN-LAST:event_disableMouseClicked
 
     /**
      * @param args the command line arguments
