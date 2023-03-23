@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package inerfaces;
+package interfaces;
 
 /**
  *
@@ -697,12 +697,28 @@ public class AppLayout extends javax.swing.JFrame {
         // TODO add your handling code here:
         login_panel.setVisible(false);
         register_panel.setVisible(true);
+        
+        
+        /*admin_panel.setVisible(false);
+        create_chat_panel.setVisible(false);
+        list_groups_panel.setVisible(false);
+        chat_panel.setVisible(false);
+        edit_profile_panel.setVisible(false);
+        manage_users_panel.setVisible(false);*/
     }//GEN-LAST:event_linkregMouseClicked
 
     private void linklogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_linklogMouseClicked
         // TODO add your handling code here:
         register_panel.setVisible(false);
         login_panel.setVisible(true);
+        
+        
+        /*admin_panel.setVisible(false);
+        create_chat_panel.setVisible(false);
+        list_groups_panel.setVisible(false);
+        chat_panel.setVisible(false);
+        edit_profile_panel.setVisible(false);
+        manage_users_panel.setVisible(false);*/
     }//GEN-LAST:event_linklogMouseClicked
 
     /**
