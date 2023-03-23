@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package inerfaces;
+package interfaces;
 
 /**
  *
@@ -499,7 +499,7 @@ public class AppLayout extends javax.swing.JFrame {
             .addGroup(edit_profile_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(edit_profile_panelLayout.createSequentialGroup()
                     .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 586, Short.MAX_VALUE)))
+                    .addGap(0, 719, Short.MAX_VALUE)))
         );
         edit_profile_panelLayout.setVerticalGroup(
             edit_profile_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
