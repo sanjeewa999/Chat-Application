@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 23, 2023 11:25:04 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Groups" table="groups" catalog="allurechatapp" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="100" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="100" not-null="true" />
+        </property>
+        <property name="status" type="boolean">
+            <column name="status" not-null="true" />
+        </property>
+        <property name="createdDate" type="date">
+            <column name="created_date" length="10" not-null="true" />
+        </property>
+        <property name="createdTime" type="time">
+            <column name="created_time" length="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
