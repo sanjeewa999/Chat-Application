@@ -1221,11 +1221,7 @@ public class AppLayout extends javax.swing.JFrame {
     }//GEN-LAST:event_btnreg1MouseClicked
 
 
-    private void linkregMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_linkregMouseClicked
-        // TODO add your handling code here:
-        login_panel.setVisible(false);
-        register_panel.setVisible(true);
-    }//GEN-LAST:event_linkregMouseClicked
+    
 
 
     /**
