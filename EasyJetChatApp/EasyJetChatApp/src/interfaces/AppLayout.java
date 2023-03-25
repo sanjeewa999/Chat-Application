@@ -548,7 +548,7 @@ public class AppLayout extends javax.swing.JFrame {
         jPanel8.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
 
         jLabel55.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel55.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel55.setForeground(new java.awt.Color(51, 0, 153));
         jLabel55.setText("Group Name");
         jPanel8.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
 
@@ -563,7 +563,7 @@ public class AppLayout extends javax.swing.JFrame {
         jPanel8.add(textgroupname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 460, 30));
 
         jLabel52.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel52.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel52.setForeground(new java.awt.Color(51, 0, 153));
         jLabel52.setText("Group Description");
         jPanel8.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
 
@@ -575,11 +575,11 @@ public class AppLayout extends javax.swing.JFrame {
                 textgroupdescriptionActionPerformed(evt);
             }
         });
-        jPanel8.add(textgroupdescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 460, 30));
+        jPanel8.add(textgroupdescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 460, 30));
 
         btn_create_group.setBackground(new java.awt.Color(255, 255, 255));
-        btn_create_group.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btn_create_group.setForeground(new java.awt.Color(0, 153, 255));
+        btn_create_group.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btn_create_group.setForeground(new java.awt.Color(0, 51, 51));
         btn_create_group.setText("CREATE GROUP");
         btn_create_group.setBorder(null);
         btn_create_group.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -938,9 +938,11 @@ public class AppLayout extends javax.swing.JFrame {
 
         jLabel75.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel75.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel75.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_user_20px_1.png"))); // NOI18N
 
         disable3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         disable3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        disable3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_invisible_20px_1.png"))); // NOI18N
         disable3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 disable3MouseClicked(evt);
@@ -966,6 +968,7 @@ public class AppLayout extends javax.swing.JFrame {
 
         show3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         show3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        show3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_eye_20px_1.png"))); // NOI18N
         show3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 show3MouseClicked(evt);
@@ -1035,7 +1038,15 @@ public class AppLayout extends javax.swing.JFrame {
         jPanel17.setLayout(jPanel17Layout);
         jPanel17Layout.setHorizontalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 805, Short.MAX_VALUE)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addContainerGap(663, Short.MAX_VALUE)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
+                        .addComponent(disable3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
+                        .addComponent(show3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86))))
             .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel17Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1057,13 +1068,9 @@ public class AppLayout extends javax.swing.JFrame {
                                 .addComponent(jLabel27)
                                 .addComponent(edit_nickname, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel57)
-                                .addGroup(jPanel17Layout.createSequentialGroup()
-                                    .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel79)
-                                        .addComponent(edit_password, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(disable3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(show3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel79)
+                                    .addComponent(edit_password, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(jPanel17Layout.createSequentialGroup()
                             .addGap(260, 260, 260)
                             .addComponent(update_msg, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1078,7 +1085,12 @@ public class AppLayout extends javax.swing.JFrame {
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
+                .addContainerGap(275, Short.MAX_VALUE)
+                .addComponent(show3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(disable3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(144, 144, 144))
             .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel17Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1115,10 +1127,8 @@ public class AppLayout extends javax.swing.JFrame {
                                 .addGroup(jPanel17Layout.createSequentialGroup()
                                     .addGap(10, 10, 10)
                                     .addComponent(jLabel79))
-                                .addComponent(edit_password, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(disable3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(show3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGap(7, 7, 7)
+                                .addComponent(edit_password, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGap(16, 16, 16)
                     .addComponent(update_msg, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(text_reg_errors2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
