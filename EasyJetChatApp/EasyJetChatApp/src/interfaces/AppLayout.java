@@ -866,12 +866,27 @@ public class AppLayout extends javax.swing.JFrame {
         img_profile3.setOpaque(true);
 
         btn_chat_groups.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/groups.png"))); // NOI18N
+        btn_chat_groups.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_chat_groupsMouseClicked(evt);
+            }
+        });
 
         jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Create Groups Active.png"))); // NOI18N
 
         jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/users.png"))); // NOI18N
+        jLabel40.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel40MouseClicked(evt);
+            }
+        });
 
         logout1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/log out.png"))); // NOI18N
+        logout1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logout1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -2147,6 +2162,21 @@ public class AppLayout extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_signup_profile_picMouseClicked
+
+    private void btn_chat_groupsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_chat_groupsMouseClicked
+       app_ui_reset();
+       admin_panel.setVisible(true);
+    }//GEN-LAST:event_btn_chat_groupsMouseClicked
+
+    private void jLabel40MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel40MouseClicked
+        app_ui_reset();
+        manage_users_panel.setVisible(true);
+    }//GEN-LAST:event_jLabel40MouseClicked
+
+    private void logout1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout1MouseClicked
+        app_ui_reset();
+        login_panel.setVisible(true);
+    }//GEN-LAST:event_logout1MouseClicked
 
     /**
      * @param args the command line arguments
