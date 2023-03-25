@@ -1093,6 +1093,9 @@
                       <Image iconType="3" name="/images/edit.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="edit_profile_link_1MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="logout2">
                   <Properties>
@@ -1100,6 +1103,9 @@
                       <Image iconType="3" name="/images/log out.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="logout2MouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
