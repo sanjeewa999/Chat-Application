@@ -353,7 +353,7 @@ public class AppLayout extends javax.swing.JFrame {
                 btnloginActionPerformed(evt);
             }
         });
-        jPanel2.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 120, -1));
+        jPanel2.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 120, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 0, 255));
