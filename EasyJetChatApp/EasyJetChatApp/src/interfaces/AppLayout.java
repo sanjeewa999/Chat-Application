@@ -1565,12 +1565,27 @@ public class AppLayout extends javax.swing.JFrame {
         text_admin_username3.setText("Welcome Admin");
 
         btn_chat_groups1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/groups.png"))); // NOI18N
+        btn_chat_groups1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_chat_groups1MouseClicked(evt);
+            }
+        });
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Create Group.png"))); // NOI18N
+        jLabel32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel32MouseClicked(evt);
+            }
+        });
 
         jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/users active.png"))); // NOI18N
 
         logout6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/log out.png"))); // NOI18N
+        logout6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logout6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -1627,6 +1642,11 @@ public class AppLayout extends javax.swing.JFrame {
         jPanel16.add(userlist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 190, 30));
 
         remove_user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/delete user.png"))); // NOI18N
+        remove_user.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                remove_userMouseClicked(evt);
+            }
+        });
         jPanel16.add(remove_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
         jPanel16.add(text_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 340, 40));
 
@@ -2255,6 +2275,31 @@ public class AppLayout extends javax.swing.JFrame {
         app_ui_reset();
         login_panel.setVisible(true);
     }//GEN-LAST:event_logout4MouseClicked
+
+    private void btn_chat_groups1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_chat_groups1MouseClicked
+        app_ui_reset();
+        admin_panel.setVisible(true);
+    }//GEN-LAST:event_btn_chat_groups1MouseClicked
+
+    private void jLabel32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel32MouseClicked
+        app_ui_reset();
+        create_chat_panel.setVisible(true);
+    }//GEN-LAST:event_jLabel32MouseClicked
+
+    private void logout6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout6MouseClicked
+        app_ui_reset();
+        login_panel.setVisible(true);
+    }//GEN-LAST:event_logout6MouseClicked
+
+    private void remove_userMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_remove_userMouseClicked
+       String del_user = (String) userlist1.getSelectedItem();
+       String del_user_id = del_user.split("-")[0];
+       
+       int user_id = Integer.parseInt(del_user_id);
+       DBManager.getDBM().delete_user(user_id);
+       text_delete.setText("User Successfully Deleted ");
+       userlist1.removeItem(userlist1.getSelectedItem());
+    }//GEN-LAST:event_remove_userMouseClicked
 
     /**
      * @param args the command line arguments
