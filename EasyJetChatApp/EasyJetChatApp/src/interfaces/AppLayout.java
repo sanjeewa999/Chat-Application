@@ -1116,6 +1116,11 @@ public class AppLayout extends javax.swing.JFrame {
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/edit.png"))); // NOI18N
 
         logout3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/log out.png"))); // NOI18N
+        logout3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logout3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -2225,6 +2230,11 @@ public class AppLayout extends javax.swing.JFrame {
         app_ui_reset();
         login_panel.setVisible(true);
     }//GEN-LAST:event_logout2MouseClicked
+
+    private void logout3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout3MouseClicked
+        app_ui_reset();
+        login_panel.setVisible(true);
+    }//GEN-LAST:event_logout3MouseClicked
 
     /**
      * @param args the command line arguments
