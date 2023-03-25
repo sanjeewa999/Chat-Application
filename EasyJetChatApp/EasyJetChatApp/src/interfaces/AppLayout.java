@@ -2361,7 +2361,7 @@ public class AppLayout extends javax.swing.JFrame {
     }
     
     
-        Thread retrivemsg = new Thread() {
+      Thread retrivemsg = new Thread() {
         public void run() {
 
             int preiv = 0;
