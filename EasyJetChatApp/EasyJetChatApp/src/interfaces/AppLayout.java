@@ -1183,6 +1183,11 @@ public class AppLayout extends javax.swing.JFrame {
         });
 
         jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/users active.png"))); // NOI18N
+        jLabel33.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel33MouseClicked(evt);
+            }
+        });
 
         logout6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/log out.png"))); // NOI18N
         logout6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1815,6 +1820,12 @@ public class AppLayout extends javax.swing.JFrame {
        text_delete.setText("User Successfully Deleted ");
        userlist1.removeItem(userlist1.getSelectedItem());
     }//GEN-LAST:event_remove_userMouseClicked
+
+    private void jLabel33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel33MouseClicked
+        // TODO add your handling code here:
+        app_ui_reset();
+         admin_panel.setVisible(true);
+    }//GEN-LAST:event_jLabel33MouseClicked
 
     /**
      * @param args the command line arguments

@@ -2099,6 +2099,9 @@
                       <Image iconType="3" name="/images/users active.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel33MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="logout6">
                   <Properties>
