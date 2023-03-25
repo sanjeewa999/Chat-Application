@@ -234,6 +234,10 @@ public class AppLayout extends javax.swing.JFrame {
         manage_users_panel = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
+<<<<<<< HEAD
+=======
+        jLabel14 = new javax.swing.JLabel();
+>>>>>>> parent of 1a94dcf (Merge pull request #13 from sanjeewa999/Dev-Koshika)
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -500,6 +504,7 @@ public class AppLayout extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
 <<<<<<< HEAD
+<<<<<<< HEAD
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(124, 124, 124)
@@ -546,11 +551,33 @@ public class AppLayout extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+=======
+                .addGap(121, 121, 121)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(logout)
+                    .addComponent(create_group3)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(text_user_username3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(img_profile))
+                    .addComponent(create_group)
+                    .addComponent(link_all_users))
+                .addContainerGap(121, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+>>>>>>> parent of 1a94dcf (Merge pull request #13 from sanjeewa999/Dev-Koshika)
                 .addComponent(img_profile)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(text_user_username3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
+<<<<<<< HEAD
 >>>>>>> parent of 60f62a7 (Merge branch 'main' into sanjeewa)
+=======
+>>>>>>> parent of 1a94dcf (Merge pull request #13 from sanjeewa999/Dev-Koshika)
                 .addComponent(create_group3)
                 .addGap(18, 18, 18)
                 .addComponent(create_group)
@@ -594,9 +621,13 @@ public class AppLayout extends javax.swing.JFrame {
             admin_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 <<<<<<< HEAD
+<<<<<<< HEAD
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
 =======
 >>>>>>> parent of 60f62a7 (Merge branch 'main' into sanjeewa)
+=======
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+>>>>>>> parent of 1a94dcf (Merge pull request #13 from sanjeewa999/Dev-Koshika)
             .addGroup(admin_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(admin_panelLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1007,12 +1038,13 @@ public class AppLayout extends javax.swing.JFrame {
 <<<<<<< HEAD
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addComponent(logout4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(95, Short.MAX_VALUE))
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+<<<<<<< HEAD
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
 =======
                     .addComponent(logout4)
@@ -1021,6 +1053,9 @@ public class AppLayout extends javax.swing.JFrame {
                     .addComponent(text_user_username2))
                 .addGap(42, 42, 42))
 >>>>>>> parent of 60f62a7 (Merge branch 'main' into sanjeewa)
+=======
+                        .addContainerGap(95, Short.MAX_VALUE))))
+>>>>>>> parent of 1a94dcf (Merge pull request #13 from sanjeewa999/Dev-Koshika)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addGap(78, 78, 78)
                 .addComponent(img_profile2)
@@ -1141,15 +1176,34 @@ public class AppLayout extends javax.swing.JFrame {
 
         jPanel16.setBackground(new java.awt.Color(204, 255, 204));
 
+<<<<<<< HEAD
+=======
+        jLabel14.setText("jLabel14");
+
+>>>>>>> parent of 1a94dcf (Merge pull request #13 from sanjeewa999/Dev-Koshika)
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGap(0, 550, Short.MAX_VALUE)
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 620, Short.MAX_VALUE)
+=======
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                .addContainerGap(293, Short.MAX_VALUE)
+                .addComponent(jLabel14)
+                .addGap(209, 209, 209))
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(jLabel14)
+                .addContainerGap(537, Short.MAX_VALUE))
+>>>>>>> parent of 1a94dcf (Merge pull request #13 from sanjeewa999/Dev-Koshika)
         );
 
         manage_users_panel.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 550, 620));
@@ -1576,7 +1630,6 @@ public class AppLayout extends javax.swing.JFrame {
 <<<<<<< HEAD
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -1590,12 +1643,9 @@ public class AppLayout extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
