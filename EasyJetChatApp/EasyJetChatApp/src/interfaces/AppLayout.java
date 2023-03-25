@@ -37,7 +37,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
+import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 import pojos.Groups;
 import pojos.Users;
 import services.Chat;
@@ -63,7 +65,37 @@ public class AppLayout extends javax.swing.JFrame {
      */
     public AppLayout() {
         initComponents();
+        
+        textusername.setBackground(new java.awt.Color(0,0,0,1));
+        textpassword.setBackground(new java.awt.Color(0,0,0,1));
+        textregemail.setBackground(new java.awt.Color(0,0,0,1));
+        textregusername.setBackground(new java.awt.Color(0,0,0,1));
+        textregnickname.setBackground(new java.awt.Color(0,0,0,1));
+        textregpassword.setBackground(new java.awt.Color(0,0,0,1));
+        textgroupname.setBackground(new java.awt.Color(0,0,0,1));
+        textgroupdescription.setBackground(new java.awt.Color(0,0,0,1));
+    
+        edit_username.setBackground(new java.awt.Color(0,0,0,1));
+        edit_nickname.setBackground(new java.awt.Color(0,0,0,1));
+        edit_password.setBackground(new java.awt.Color(0,0,0,1));
+        client_chat_groups_panel.setBackground(new java.awt.Color(0,0,0,1));
+        msg_typer.setBackground(new java.awt.Color(0,0,0,1));
+
+
+        
+        login_panel.setVisible(true);
+        register_panel.setVisible(false);
+        admin_panel.setVisible(false);
+        create_chat_panel.setVisible(false);
+        list_groups_panel.setVisible(false);
+        chat_panel.setVisible(false);
+        edit_profile_panel.setVisible(false);
+        manage_users_panel.setVisible(false);
+        
+        
     }
+    
+    
 
     public void app_ui_reset(){
         login_panel.setVisible(false);
@@ -91,6 +123,29 @@ public class AppLayout extends javax.swing.JFrame {
         }
         return avatar;
     }
+    
+    public void showUsers(){
+          List data = DBManager.getDBM().allUsers();
+
+     JTable tbl = new JTable();
+     DefaultTableModel table_users = new DefaultTableModel(0, 0);
+     String header[] = new String[] { "Prority", "Task Title", "Start",
+      "Pause", "Stop", "Statulses" };
+      table_users.setColumnIdentifiers(header);
+      tbl.setModel(table_users);
+
+
+
+          for (Iterator iterator = data.iterator(); iterator.hasNext();){
+            Users user = (Users) iterator.next(); 
+            
+            table_users.addRow(new Object[] { "data", "data", "data",
+        "data", "data", "data" });
+ 
+          }
+          
+          
+      }
     
     public ArrayList<String> validatelogin(String username, String password) {
         ArrayList<String> errors = new ArrayList<>();
