@@ -1797,6 +1797,7 @@ public class AppLayout extends javax.swing.JFrame {
         // TODO add your handling code here:
         app_ui_reset();
         create_chat_panel.setVisible(true);
+//        jkhjk
     }//GEN-LAST:event_jLabel32MouseClicked
 
     private void logout6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout6MouseClicked
