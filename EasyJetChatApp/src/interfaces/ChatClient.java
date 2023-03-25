@@ -19,7 +19,7 @@ public class ChatClient implements Serializable {
         //this.avatar = avatar;
     }
 
-    
+    int v;
     public int getId() {
         return id;
     }
