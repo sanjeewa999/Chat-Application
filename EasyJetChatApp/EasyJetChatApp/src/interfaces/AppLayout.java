@@ -1620,10 +1620,25 @@ public class AppLayout extends javax.swing.JFrame {
         create_group3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Groups Active.png"))); // NOI18N
 
         create_group.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Create Group.png"))); // NOI18N
+        create_group.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                create_groupMouseClicked(evt);
+            }
+        });
 
         link_all_users.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/users.png"))); // NOI18N
+        link_all_users.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                link_all_usersMouseClicked(evt);
+            }
+        });
 
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/log out.png"))); // NOI18N
+        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1675,8 +1690,6 @@ public class AppLayout extends javax.swing.JFrame {
         jScrollPane1.setViewportView(admin_group_list);
 
         jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 570, 530));
-
-        create_group2.setText("jLabel13");
 
         javax.swing.GroupLayout admin_panelLayout = new javax.swing.GroupLayout(admin_panel);
         admin_panel.setLayout(admin_panelLayout);
@@ -2177,6 +2190,21 @@ public class AppLayout extends javax.swing.JFrame {
         app_ui_reset();
         login_panel.setVisible(true);
     }//GEN-LAST:event_logout1MouseClicked
+
+    private void create_groupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_create_groupMouseClicked
+        app_ui_reset();
+        create_chat_panel.setVisible(true);
+    }//GEN-LAST:event_create_groupMouseClicked
+
+    private void link_all_usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_link_all_usersMouseClicked
+        app_ui_reset();
+        manage_users_panel.setVisible(true);
+    }//GEN-LAST:event_link_all_usersMouseClicked
+
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        app_ui_reset();
+        login_panel.setVisible(true);
+    }//GEN-LAST:event_logoutMouseClicked
 
     /**
      * @param args the command line arguments
