@@ -1271,10 +1271,20 @@ public class AppLayout extends javax.swing.JFrame {
         text_user_username2.setText("Welcome User");
 
         jLabel58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/join group.png"))); // NOI18N
+        jLabel58.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel58MouseClicked(evt);
+            }
+        });
 
         jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Profile edit Active.png"))); // NOI18N
 
         logout4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/log out.png"))); // NOI18N
+        logout4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logout4MouseClicked(evt);
+            }
+        });
 
         img_profile2.setOpaque(true);
 
@@ -2235,6 +2245,16 @@ public class AppLayout extends javax.swing.JFrame {
         app_ui_reset();
         login_panel.setVisible(true);
     }//GEN-LAST:event_logout3MouseClicked
+
+    private void jLabel58MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel58MouseClicked
+        app_ui_reset();
+        list_groups_panel.setVisible(true);
+    }//GEN-LAST:event_jLabel58MouseClicked
+
+    private void logout4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout4MouseClicked
+        app_ui_reset();
+        login_panel.setVisible(true);
+    }//GEN-LAST:event_logout4MouseClicked
 
     /**
      * @param args the command line arguments
