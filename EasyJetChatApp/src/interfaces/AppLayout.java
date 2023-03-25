@@ -31,6 +31,7 @@ import pojos.Users;
 public class AppLayout extends javax.swing.JFrame {
     
     int id;
+    
 
     /**
      * Creates new form java
@@ -924,7 +925,7 @@ public class AppLayout extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 0, 102));
         jLabel1.setText("MANAGE USERS");
-        jPanel16.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 250, 50));
+        jPanel16.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 250, 50));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 0, 153));
