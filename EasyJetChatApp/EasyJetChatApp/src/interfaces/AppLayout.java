@@ -6,11 +6,26 @@
 package interfaces;
 
 import dbmanager.DBManager;
+import interfaces.icons.Chat_ball;
+import java.awt.Cursor;
+import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
+import java.rmi.AlreadyBoundException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -18,8 +33,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollBar;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import pojos.Groups;
 import pojos.Users;
+import services.Chat;
+import services.ChatService;
 
 /**
  *
@@ -28,8 +50,12 @@ import pojos.Users;
 public class AppLayout extends javax.swing.JFrame {
     
     int id;
-    int v;
-//    jkh
+    int active_group;
+   Registry reg;
+    Chat chat;static int xx, yy;
+    static Chat_ball chat_ball;
+    ChatClient me;
+
    
 
     /**
@@ -104,6 +130,349 @@ public class AppLayout extends javax.swing.JFrame {
         return errors;
     }
     
+        public BufferedImage ImageIconToBufferedImage(ImageIcon icon) {
+        BufferedImage bi = new BufferedImage(
+                icon.getIconWidth(),
+                icon.getIconHeight(),
+                BufferedImage.TYPE_INT_RGB);
+        Graphics g = bi.createGraphics();
+        // paint the Icon to the BufferedImage.
+        icon.paintIcon(null, g, 0, 0);
+        g.dispose();
+
+        return bi;
+    }
+        
+         public void sender() {
+        String m = msg_typer.getText();
+        if (m.equalsIgnoreCase("bye")) {
+            LocalDateTime myDateObj = LocalDateTime.now();
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String time_now = myDateObj.format(myFormatObj);
+
+            
+            Message msg = new Message();
+            msg.setDate_time(time_now);
+            String user = me.getUsername();
+            m = "****** " + user  + " has left the chat " + " ******";
+
+       
+            try {
+                chat.unsubscribre(enterd_grup_id, me);
+            } catch (RemoteException ex) {
+                Logger.getLogger(AppLayout.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            
+            app_ui_reset();
+            login_panel.setVisible(true);
+
+
+            System.out.println(m);
+            msg.setMessage(m);
+            
+  
+            
+            JScrollBar vertical = msgScrollPane.getVerticalScrollBar();
+            msgScrollPane.setMaximumSize(vertical.getMaximumSize());
+        
+
+            try {
+                chat.send_message(msg);
+                
+                msg_typer.setText("");
+            } catch (RemoteException ex) {
+                System.out.println(ex);
+            }
+            
+            msgScrollPane.getVerticalScrollBar().addAdjustmentListener((AdjustmentEvent e) -> {
+            e.getAdjustable().setValue(e.getAdjustable().getMaximum());
+        });
+        } else {
+
+            LocalDateTime myDateObj = LocalDateTime.now();
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String time_now = myDateObj.format(myFormatObj);
+
+            Message msg = new Message();
+            msg.setGroup_id(enterd_grup_id);
+            msg.setMsgid(msg.hashCode());
+            msg.setUserid(me.getId());
+            msg.setName(me.getUsername());
+            msg.setMessage(m);
+            msg.setDate_time(time_now);
+
+            try {
+                chat.send_message(msg);
+                
+                
+           
+        
+                msg_typer.setText("");
+            } catch (RemoteException ex) {
+                System.out.println(ex);
+            }
+        }
+        
+
+
+    }
+    
+    
+     int y = 13;
+    
+    public void load_admin_group(boolean is_called_signin) {
+            
+         y = 13;
+         List groups = DBManager.getDBM().get_chat_groups();
+
+         admin_group_list.removeAll();
+
+         
+            for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+            Groups next = (Groups) iterator.next();
+
+            if (is_called_signin) {
+             
+                DBManager.getDBM().put_offline(next.getId());
+            }
+
+            JPanel group = new javax.swing.JPanel();
+            group.setBackground(new java.awt.Color(66, 72, 245));
+        
+            group.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+            JLabel g_action = new javax.swing.JLabel();
+            g_action.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+            if (DBManager.getDBM().is_online(next.getId())) {
+                g_action.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaces/icons/end.png"))); // NOI18N
+            } else {
+                g_action.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaces/icons/start.png"))); // NOI18N
+            }
+
+            g_action.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                
+                    active_group = next.getId();
+                    group_action(next.getId(), g_action);
+
+                }
+            });
+            
+
+            JLabel g_des = new javax.swing.JLabel();
+            g_des.setForeground(new java.awt.Color(255, 255, 255));
+            g_des.setText("<html>" + next.getDescription() + "</html>");
+            
+            
+
+            JLabel g_name = new javax.swing.JLabel();
+            g_name.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+            g_name.setForeground(new java.awt.Color(255, 255, 255));
+            g_name.setText(next.getName());
+            group.add(g_action, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, -1, 29));
+            group.add(g_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 36, 163, 33));
+            group.add(g_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 160, -1));
+            admin_group_list.add(group, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, y, 294, 90));
+            
+
+            y += 110;
+        
+        
+        
+         }
+        }
+    
+      public void start_client() {
+
+        try {
+            reg = LocateRegistry.getRegistry("localhost", 2123);
+            chat = (Chat) reg.lookup("ChatAdmin");
+
+        } catch (RemoteException | NotBoundException ex) {
+            System.out.println(ex);
+        }
+
+    }
+    
+    public void group_action(int chat_id, JLabel g_action) {
+            
+
+            File btn_icon = new File("");
+            String abspath = btn_icon.getAbsolutePath();
+
+            if (DBManager.getDBM().is_online(chat_id)) {
+              DBManager.getDBM().put_offline(chat_id);
+                ImageIcon icon = new ImageIcon(abspath + "\\src\\interfaces\\icons\\start.png");
+                g_action.setIcon(icon);
+            } else if (DBManager.getDBM().put_online(chat_id)) {
+                
+                 System.out.println("chat is offline");
+                ImageIcon icon = new ImageIcon(abspath + "\\src\\interfaces\\icons\\end.png");
+                g_action.setIcon(icon);
+                
+                start_server(chat_id);
+
+
+            }
+    }
+    
+    public void start_server(int g_id) {
+        try {
+        Chat chat = new ChatService(g_id);
+            Registry reg = LocateRegistry.createRegistry(2123);
+            reg.bind("ChatAdmin", chat);
+
+            System.out.println("Chat server is running...");
+
+        } catch (RemoteException | AlreadyBoundException e) {
+            System.out.println("Exception ocured : " + e.getMessage());
+        }
+    }
+    
+    int y1 = 13;
+        
+        
+                   
+               
+        public void load_client_groups() {
+            
+        List chats = DBManager.getDBM().get_chat_groups();
+        client_chat_groups_panel.removeAll();
+        
+            for (Iterator iterator = chats.iterator(); iterator.hasNext();) {
+            Groups next = (Groups) iterator.next();
+            
+       
+
+            JPanel client_grp_panel = new javax.swing.JPanel();
+            client_grp_panel.setBackground(new java.awt.Color(66, 72, 245));
+            client_grp_panel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            client_grp_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+            
+            client_grp_panel.addMouseListener(new MouseAdapter() {
+                public void mouseClicked(MouseEvent e) {
+                    enter_to_chat(next.getId());
+
+                }
+            });
+            
+            boolean is_sub = false;
+            
+            JLabel subscribe = new javax.swing.JLabel();
+
+            if (is_sub) {
+                subscribe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaces/icons/unsubscribe.png"))); // NOI18N
+            } else {
+                subscribe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaces/icons/subscribe.png"))); // NOI18N
+            }
+
+            if (next.isStatus()== true) {
+                subscribe.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        subscribe_action(next.getId(), subscribe);
+                        String m = msg_typer.getText();
+  
+                        LocalDateTime myDateObj = LocalDateTime.now();
+                        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                        String time_now = myDateObj.format(myFormatObj);
+                        Message msg = new Message();
+                        msg.setDate_time(time_now);
+                        String user = me.getUsername();
+                        m = "****** " + user  + " has join the chat " + " ******";
+                        msg.setMessage(m);
+                        try {
+                            
+                            chat.send_message(msg);
+                            System.out.println(msg);
+                        } catch (RemoteException ex) {
+                            Logger.getLogger(AppLayout.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+
+                    }
+                });
+
+            } else {
+                subscribe.setEnabled(false);
+                subscribe.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+            }
+
+            JLabel grp_dec = new javax.swing.JLabel();
+            grp_dec.setForeground(new java.awt.Color(255, 255, 255));
+            grp_dec.setText(next.getDescription());
+
+            JLabel statuts_txt = new javax.swing.JLabel();
+            statuts_txt.setBackground(new java.awt.Color(28, 36, 47));
+            statuts_txt.setForeground(new java.awt.Color(255, 255, 255));
+
+            JLabel statuts_icon = new javax.swing.JLabel();
+
+            if (next.isStatus()== true) {
+                statuts_txt.setText("online");
+                statuts_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaces/icons/online.png")));
+            } else {
+                statuts_txt.setText("offline");
+                statuts_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaces/icons/offline.png")));
+            }
+
+            JLabel grp_name = new javax.swing.JLabel();
+            grp_name.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+            grp_name.setForeground(new java.awt.Color(255, 255, 255));
+            grp_name.setText(next.getName());
+
+            client_grp_panel.add(subscribe, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 42, 99, 35));
+            client_grp_panel.add(grp_dec, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 42, 160, 35));
+            client_grp_panel.add(statuts_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 13, 51, -1));
+            client_grp_panel.add(statuts_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 13, 18, 16));
+            client_grp_panel.add(grp_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 160, -1));
+            client_chat_groups_panel.add(client_grp_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, y1, 299, 96));
+
+            y1 += 110;
+
+     
+        }
+        }
+        
+        
+            public void subscribe_action(int grp_id, JLabel sub_btn) {
+        try {
+            File btn_icon = new File("");
+            String abspath = btn_icon.getAbsolutePath();
+
+            if (chat.is_subscribed(me.getId())) {
+                chat.unsubscribre(grp_id, me);
+                ImageIcon icon = new ImageIcon(abspath + "\\src\\interfaces\\icons\\subscribe.png");
+                sub_btn.setIcon(icon);
+            } else {
+                chat.subscribre(grp_id, me);
+                ImageIcon icon = new ImageIcon(abspath + "\\src\\interfaces\\icons\\unsubscribe.png");
+                sub_btn.setIcon(icon);
+            }
+
+        } catch (RemoteException ex) {
+            System.out.println(ex);
+        }
+    }
+    
+        
+        static int enterd_grup_id;
+        public void enter_to_chat(int grup_id) {
+            try {
+                if (chat.is_subscribed(me.getId())) {
+                    app_ui_reset();
+                    chat_panel.setVisible(true);
+                    
+                    enterd_grup_id = grup_id;
+                    retrivemsg.start();
+                }
+
+            } catch (RemoteException ex) {
+                System.out.println(ex);
+            }
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -353,7 +722,7 @@ public class AppLayout extends javax.swing.JFrame {
                 btnloginActionPerformed(evt);
             }
         });
-        jPanel2.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 120, -1));
+        jPanel2.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 120, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 0, 255));
@@ -386,6 +755,11 @@ public class AppLayout extends javax.swing.JFrame {
 
         signup_profile_pic.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
         signup_profile_pic.setText("signup_profile_pic");
+        signup_profile_pic.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signup_profile_picMouseClicked(evt);
+            }
+        });
         jPanel3.add(signup_profile_pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 380, 370));
 
         register_panel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 620));
@@ -1523,7 +1897,7 @@ public class AppLayout extends javax.swing.JFrame {
     }//GEN-LAST:event_btnloginMouseClicked
 
     private void showMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showMouseClicked
-        textpassword.setEchoChar((char)8226);
+//        textpassword.setEchoChar((char)8226);
         disable.setVisible(true);
         disable.setEnabled(true);
         show.setVisible(false);
@@ -1531,7 +1905,7 @@ public class AppLayout extends javax.swing.JFrame {
     }//GEN-LAST:event_showMouseClicked
 
     private void disableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_disableMouseClicked
-        textpassword.setEchoChar((char)0);
+       // textpassword.setEchoChar((char)0);
         disable.setVisible(false);
         disable.setEnabled(false);
         show.setVisible(true);
@@ -1539,7 +1913,7 @@ public class AppLayout extends javax.swing.JFrame {
     }//GEN-LAST:event_disableMouseClicked
 
     private void show2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_show2MouseClicked
-        textregpassword.setEchoChar((char)8226);
+      //  textregpassword.setEchoChar((char)8226);
         disable2.setVisible(true);
         disable2.setEnabled(true);
         show2.setVisible(false);
@@ -1547,7 +1921,7 @@ public class AppLayout extends javax.swing.JFrame {
     }//GEN-LAST:event_show2MouseClicked
 
     private void disable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_disable2MouseClicked
-        textregpassword.setEchoChar((char)0);
+      //  textregpassword.setEchoChar((char)0);
         disable2.setVisible(false);
         disable2.setEnabled(false);
         show2.setVisible(true);
@@ -1749,9 +2123,195 @@ public class AppLayout extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_edit_nicknameActionPerformed
 
+    private void signup_profile_picMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signup_profile_picMouseClicked
+        JFileChooser chooser = new JFileChooser(); //open image file file
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & PNG Images", "jpg", "png"); //set image type filter
+        chooser.setFileFilter(filter); //filter
+        int returnVal = chooser.showOpenDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) { //if image selected
+            File file = chooser.getSelectedFile(); //get selected file
+            String strfilepath = file.getAbsolutePath(); //get abs path
+//            System.out.println(strfilepath);
+            try {
+                ImageIcon icon = new ImageIcon(strfilepath); //string image path open as a image icon
+                ImageIcon iconresized = new ImageIcon(icon.getImage().getScaledInstance(120, 120, Image.SCALE_DEFAULT)); //resize image icon fit for profile icon label
+                signup_profile_pic.setText(null); // remove label text
+                signup_profile_pic.setIcon(iconresized); //set seleted image to profile icon label 
+
+//               String img = this.encodeToString(this.ImageIconToBufferedImage(iconresized),"jpg"); 
+//               BufferedImage bimg = this.decodeToImage(img);
+//               
+//               signup_profile_pic.setIcon(new ImageIcon(bimg));
+            } catch (Exception e) {
+                System.out.println("Exception occurred : " + e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_signup_profile_picMouseClicked
+
     /**
      * @param args the command line arguments
      */
+    
+     int y2 = 210;
+
+    public void recive_msg_handler(Message msg) {
+
+        chat_background.repaint();
+        chat_background.revalidate();
+
+        JLabel msg_content = new javax.swing.JLabel();
+        msg_content.setForeground(new java.awt.Color(255, 255, 255));
+        msg_content.setText("<html>" + msg.getMessage() + "</html>");
+
+        JLabel msg_time = new javax.swing.JLabel();
+        msg_time.setForeground(new java.awt.Color(255, 255, 255));
+        msg_time.setText(msg.getDate_time());
+
+        JLabel msg_name = new javax.swing.JLabel();
+        msg_name.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        msg_name.setForeground(new java.awt.Color(255, 255, 255));
+        msg_name.setText(msg.getName());
+
+        JLabel msg_dp = new javax.swing.JLabel();
+        msg_dp.setBackground(new java.awt.Color(17, 89, 153));
+
+        List data = DBManager.getDBM().get_avatart(msg.getUserid());
+        Iterator i = data.iterator();
+        if (i.hasNext()) {
+            Users user = (Users) i.next();
+            ImageIcon iconresized = new ImageIcon(toImageIcon(user.getProfileImage()).getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT));
+            msg_dp.setIcon(iconresized);
+        }
+
+        JPanel msg_layer = new javax.swing.JPanel();
+
+        msg_layer.setBackground(
+                new java.awt.Color(54, 63, 77));
+        msg_layer.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        msg_layer.setLayout(
+                new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        msg_layer.add(msg_content,
+                new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 260, 40));
+        msg_layer.add(msg_time,
+                new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 210, -1));
+        msg_layer.add(msg_name,
+                new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 210, -1));
+        msg_layer.add(msg_dp,
+                new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 15, 35, 35));
+
+//        chat_background.add(msg_layer, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 280, 110));
+        chat_background.add(msg_layer,
+                new org.netbeans.lib.awtextra.AbsoluteConstraints(20, y2, 280, 110));
+
+        chat_background.repaint();
+        chat_background.revalidate();
+
+        
+        
+        chat_background.repaint();
+        chat_background.revalidate();
+        
+
+        y2 += 120;
+
+    }
+    
+    
+    public void send_msg_handler(Message msg) {
+
+        chat_background.repaint();
+        chat_background.revalidate();
+
+        JLabel msg_content = new javax.swing.JLabel();
+        msg_content.setForeground(new java.awt.Color(255, 255, 255));
+        msg_content.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        msg_content.setText("<html>" + msg.getMessage() + "</html>");
+
+        JLabel msg_time = new javax.swing.JLabel();
+        msg_time.setForeground(new java.awt.Color(255, 255, 255));
+        msg_time.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        msg_time.setText(msg.getDate_time());
+
+        JLabel msg_name = new javax.swing.JLabel();
+        msg_name.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        msg_name.setForeground(new java.awt.Color(255, 255, 255));
+        msg_name.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        msg_name.setText(msg.getName());
+
+        JLabel msg_dp = new javax.swing.JLabel();
+        msg_dp.setBackground(new java.awt.Color(54, 63, 77));
+
+        List data = DBManager.getDBM().get_avatart(msg.getUserid());
+        Iterator i = data.iterator();
+        if (i.hasNext()) {
+            Users user = (Users) i.next();
+            ImageIcon iconresized = new ImageIcon(toImageIcon(user.getProfileImage()).getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT));
+            msg_dp.setIcon(iconresized);
+        }
+
+        JPanel msg_layer = new javax.swing.JPanel();
+        msg_layer.setBackground(new java.awt.Color(42, 50, 61));
+        msg_layer.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        msg_layer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        msg_layer.add(msg_content, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 260, 40));
+        msg_layer.add(msg_time, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 210, -1));
+        msg_layer.add(msg_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 210, -1));
+        msg_layer.add(msg_dp, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 35, 35));
+
+        //chat_background.add(msg_layer, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 280, 110));
+        chat_background.add(msg_layer, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, y2, 280, 110));
+
+        JScrollBar sb = msgScrollPane.getVerticalScrollBar();
+        sb.setValue(sb.getMaximum());
+
+        chat_background.repaint();
+        chat_background.revalidate();
+
+        y2 += 120;
+    }
+    
+    
+        Thread retrivemsg = new Thread() {
+        public void run() {
+
+            int preiv = 0;
+
+            while (true) {
+                try {
+
+                    Message nmsg = chat.broadcast();
+                    if (nmsg != null) {
+                        if (preiv != nmsg.getMsgid()) {
+                            //System.out.println(nmsg.getDate_time() + "\t" + nmsg.getName() + " : " + nmsg.getMessage() + "\n");
+
+                            System.out.println(nmsg.getMsgid() + "-" + me.getId());
+                            if (nmsg.getUserid() == me.getId()) {
+                                send_msg_handler(nmsg);
+                            } else {
+                                recive_msg_handler(nmsg);
+                            }
+
+                            preiv = nmsg.getMsgid();
+                        }
+                    }
+
+//                    if(newmsg!=preiv){
+//                        System.out.println(chat.broadcast().getMessage());
+//                        preiv = newmsg;
+//                    }
+                    Thread.sleep(100);
+                } catch (RemoteException | NullPointerException ex) {
+                    System.out.println(ex);
+                } catch (InterruptedException ex) {
+
+                }
+            }
+
+        }
+    }; 
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
