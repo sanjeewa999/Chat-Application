@@ -48,32 +48,32 @@
                   <Component id="register_panel" alignment="0" min="-2" pref="930" max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-                  <Component id="create_chat_panel" alignment="0" min="-2" pref="930" max="-2" attributes="0"/>
+                  <Component id="create_chat_panel" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
-                  <Component id="list_groups_panel" alignment="0" min="-2" pref="930" max="-2" attributes="0"/>
+                  <Component id="list_groups_panel" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="5" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="chat_panel" min="-2" pref="930" max="-2" attributes="0"/>
+                      <Component id="chat_panel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" rootIndex="6" groupAlignment="0" attributes="0">
-                  <Component id="edit_profile_panel" alignment="0" min="-2" pref="930" max="-2" attributes="0"/>
+                  <Component id="edit_profile_panel" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="7" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Component id="manage_users_panel" min="-2" pref="930" max="-2" attributes="0"/>
-                      <EmptySpace pref="50" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" rootIndex="8" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Component id="admin_panel" min="-2" pref="930" max="-2" attributes="0"/>
-                      <EmptySpace pref="50" max="32767" attributes="0"/>
+                      <Component id="admin_panel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -88,16 +88,16 @@
                   <Component id="register_panel" alignment="0" min="-2" pref="620" max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-                  <Component id="create_chat_panel" alignment="0" min="-2" pref="620" max="-2" attributes="0"/>
+                  <Component id="create_chat_panel" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
-                  <Component id="list_groups_panel" alignment="0" min="-2" pref="620" max="-2" attributes="0"/>
+                  <Component id="list_groups_panel" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="5" groupAlignment="0" attributes="0">
-                  <Component id="chat_panel" alignment="0" min="-2" pref="620" max="-2" attributes="0"/>
+                  <Component id="chat_panel" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="6" groupAlignment="0" attributes="0">
-                  <Component id="edit_profile_panel" alignment="0" min="-2" pref="620" max="-2" attributes="0"/>
+                  <Component id="edit_profile_panel" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="7" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -109,7 +109,7 @@
               <Group type="103" rootIndex="8" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
-                      <Component id="admin_panel" min="-2" pref="620" max="-2" attributes="0"/>
+                      <Component id="admin_panel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="224" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -1642,10 +1642,8 @@
                                           <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
                                           <Component id="edit_nickname" min="-2" pref="308" max="-2" attributes="0"/>
                                           <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel79" min="-2" max="-2" attributes="0"/>
-                                              <Component id="edit_password" min="-2" pref="308" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jLabel79" min="-2" max="-2" attributes="0"/>
+                                          <Component id="edit_password" min="-2" pref="308" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
@@ -2081,6 +2079,9 @@
                       <Image iconType="3" name="/images/groups.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_chat_groups1MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel32">
                   <Properties>
@@ -2088,6 +2089,9 @@
                       <Image iconType="3" name="/images/Create Group.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel32MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel33">
                   <Properties>
@@ -2102,6 +2106,9 @@
                       <Image iconType="3" name="/images/log out.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="logout6MouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -2171,6 +2178,9 @@
                       <Image iconType="3" name="/images/delete user.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="remove_userMouseClicked"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="190" y="400" width="-1" height="-1"/>
