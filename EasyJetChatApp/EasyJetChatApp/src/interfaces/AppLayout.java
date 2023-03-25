@@ -37,7 +37,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
+import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 import pojos.Groups;
 import pojos.Users;
 import services.Chat;
@@ -63,7 +65,37 @@ public class AppLayout extends javax.swing.JFrame {
      */
     public AppLayout() {
         initComponents();
+        
+        textusername.setBackground(new java.awt.Color(0,0,0,1));
+        textpassword.setBackground(new java.awt.Color(0,0,0,1));
+        textregemail.setBackground(new java.awt.Color(0,0,0,1));
+        textregusername.setBackground(new java.awt.Color(0,0,0,1));
+        textregnickname.setBackground(new java.awt.Color(0,0,0,1));
+        textregpassword.setBackground(new java.awt.Color(0,0,0,1));
+        textgroupname.setBackground(new java.awt.Color(0,0,0,1));
+        textgroupdescription.setBackground(new java.awt.Color(0,0,0,1));
+    
+        edit_username.setBackground(new java.awt.Color(0,0,0,1));
+        edit_nickname.setBackground(new java.awt.Color(0,0,0,1));
+        edit_password.setBackground(new java.awt.Color(0,0,0,1));
+        client_chat_groups_panel.setBackground(new java.awt.Color(0,0,0,1));
+        msg_typer.setBackground(new java.awt.Color(0,0,0,1));
+
+
+        
+        login_panel.setVisible(true);
+        register_panel.setVisible(false);
+        admin_panel.setVisible(false);
+        create_chat_panel.setVisible(false);
+        list_groups_panel.setVisible(false);
+        chat_panel.setVisible(false);
+        edit_profile_panel.setVisible(false);
+        manage_users_panel.setVisible(false);
+        
+        
     }
+    
+    
 
     public void app_ui_reset(){
         login_panel.setVisible(false);
@@ -91,6 +123,29 @@ public class AppLayout extends javax.swing.JFrame {
         }
         return avatar;
     }
+    
+    public void showUsers(){
+          List data = DBManager.getDBM().allUsers();
+
+     JTable tbl = new JTable();
+     DefaultTableModel table_users = new DefaultTableModel(0, 0);
+     String header[] = new String[] { "Prority", "Task Title", "Start",
+      "Pause", "Stop", "Statulses" };
+      table_users.setColumnIdentifiers(header);
+      tbl.setModel(table_users);
+
+
+
+          for (Iterator iterator = data.iterator(); iterator.hasNext();){
+            Users user = (Users) iterator.next(); 
+            
+            table_users.addRow(new Object[] { "data", "data", "data",
+        "data", "data", "data" });
+ 
+          }
+          
+          
+      }
     
     public ArrayList<String> validatelogin(String username, String password) {
         ArrayList<String> errors = new ArrayList<>();
@@ -1022,8 +1077,18 @@ public class AppLayout extends javax.swing.JFrame {
         jLabel60.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Join active.png"))); // NOI18N
 
         edit_profile_link_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/edit.png"))); // NOI18N
+        edit_profile_link_1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                edit_profile_link_1MouseClicked(evt);
+            }
+        });
 
         logout2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/log out.png"))); // NOI18N
+        logout2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logout2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -1106,6 +1171,11 @@ public class AppLayout extends javax.swing.JFrame {
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/edit.png"))); // NOI18N
 
         logout3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/log out.png"))); // NOI18N
+        logout3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logout3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -1256,10 +1326,20 @@ public class AppLayout extends javax.swing.JFrame {
         text_user_username2.setText("Welcome User");
 
         jLabel58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/join group.png"))); // NOI18N
+        jLabel58.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel58MouseClicked(evt);
+            }
+        });
 
         jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Profile edit Active.png"))); // NOI18N
 
         logout4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/log out.png"))); // NOI18N
+        logout4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logout4MouseClicked(evt);
+            }
+        });
 
         img_profile2.setOpaque(true);
 
@@ -1540,12 +1620,27 @@ public class AppLayout extends javax.swing.JFrame {
         text_admin_username3.setText("Welcome Admin");
 
         btn_chat_groups1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/groups.png"))); // NOI18N
+        btn_chat_groups1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_chat_groups1MouseClicked(evt);
+            }
+        });
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Create Group.png"))); // NOI18N
+        jLabel32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel32MouseClicked(evt);
+            }
+        });
 
         jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/users active.png"))); // NOI18N
 
         logout6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/log out.png"))); // NOI18N
+        logout6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logout6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -1602,6 +1697,11 @@ public class AppLayout extends javax.swing.JFrame {
         jPanel16.add(userlist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 190, 30));
 
         remove_user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/delete user.png"))); // NOI18N
+        remove_user.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                remove_userMouseClicked(evt);
+            }
+        });
         jPanel16.add(remove_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
         jPanel16.add(text_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 340, 40));
 
@@ -2205,6 +2305,56 @@ public class AppLayout extends javax.swing.JFrame {
         app_ui_reset();
         login_panel.setVisible(true);
     }//GEN-LAST:event_logoutMouseClicked
+
+    private void edit_profile_link_1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_edit_profile_link_1MouseClicked
+       app_ui_reset();
+       edit_profile_panel.setVisible(true);
+    }//GEN-LAST:event_edit_profile_link_1MouseClicked
+
+    private void logout2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout2MouseClicked
+        app_ui_reset();
+        login_panel.setVisible(true);
+    }//GEN-LAST:event_logout2MouseClicked
+
+    private void logout3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout3MouseClicked
+        app_ui_reset();
+        login_panel.setVisible(true);
+    }//GEN-LAST:event_logout3MouseClicked
+
+    private void jLabel58MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel58MouseClicked
+        app_ui_reset();
+        list_groups_panel.setVisible(true);
+    }//GEN-LAST:event_jLabel58MouseClicked
+
+    private void logout4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout4MouseClicked
+        app_ui_reset();
+        login_panel.setVisible(true);
+    }//GEN-LAST:event_logout4MouseClicked
+
+    private void btn_chat_groups1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_chat_groups1MouseClicked
+        app_ui_reset();
+        admin_panel.setVisible(true);
+    }//GEN-LAST:event_btn_chat_groups1MouseClicked
+
+    private void jLabel32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel32MouseClicked
+        app_ui_reset();
+        create_chat_panel.setVisible(true);
+    }//GEN-LAST:event_jLabel32MouseClicked
+
+    private void logout6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout6MouseClicked
+        app_ui_reset();
+        login_panel.setVisible(true);
+    }//GEN-LAST:event_logout6MouseClicked
+
+    private void remove_userMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_remove_userMouseClicked
+       String del_user = (String) userlist1.getSelectedItem();
+       String del_user_id = del_user.split("-")[0];
+       
+       int user_id = Integer.parseInt(del_user_id);
+       DBManager.getDBM().delete_user(user_id);
+       text_delete.setText("User Successfully Deleted ");
+       userlist1.removeItem(userlist1.getSelectedItem());
+    }//GEN-LAST:event_remove_userMouseClicked
 
     /**
      * @param args the command line arguments
