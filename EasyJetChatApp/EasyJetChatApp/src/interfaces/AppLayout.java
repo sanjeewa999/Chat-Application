@@ -866,12 +866,27 @@ public class AppLayout extends javax.swing.JFrame {
         img_profile3.setOpaque(true);
 
         btn_chat_groups.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/groups.png"))); // NOI18N
+        btn_chat_groups.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_chat_groupsMouseClicked(evt);
+            }
+        });
 
         jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Create Groups Active.png"))); // NOI18N
 
         jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/users.png"))); // NOI18N
+        jLabel40.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel40MouseClicked(evt);
+            }
+        });
 
         logout1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/log out.png"))); // NOI18N
+        logout1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logout1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1605,10 +1620,25 @@ public class AppLayout extends javax.swing.JFrame {
         create_group3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Groups Active.png"))); // NOI18N
 
         create_group.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Create Group.png"))); // NOI18N
+        create_group.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                create_groupMouseClicked(evt);
+            }
+        });
 
         link_all_users.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/users.png"))); // NOI18N
+        link_all_users.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                link_all_usersMouseClicked(evt);
+            }
+        });
 
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/log out.png"))); // NOI18N
+        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1660,8 +1690,6 @@ public class AppLayout extends javax.swing.JFrame {
         jScrollPane1.setViewportView(admin_group_list);
 
         jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 570, 530));
-
-        create_group2.setText("jLabel13");
 
         javax.swing.GroupLayout admin_panelLayout = new javax.swing.GroupLayout(admin_panel);
         admin_panel.setLayout(admin_panelLayout);
@@ -2147,6 +2175,36 @@ public class AppLayout extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_signup_profile_picMouseClicked
+
+    private void btn_chat_groupsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_chat_groupsMouseClicked
+       app_ui_reset();
+       admin_panel.setVisible(true);
+    }//GEN-LAST:event_btn_chat_groupsMouseClicked
+
+    private void jLabel40MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel40MouseClicked
+        app_ui_reset();
+        manage_users_panel.setVisible(true);
+    }//GEN-LAST:event_jLabel40MouseClicked
+
+    private void logout1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout1MouseClicked
+        app_ui_reset();
+        login_panel.setVisible(true);
+    }//GEN-LAST:event_logout1MouseClicked
+
+    private void create_groupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_create_groupMouseClicked
+        app_ui_reset();
+        create_chat_panel.setVisible(true);
+    }//GEN-LAST:event_create_groupMouseClicked
+
+    private void link_all_usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_link_all_usersMouseClicked
+        app_ui_reset();
+        manage_users_panel.setVisible(true);
+    }//GEN-LAST:event_link_all_usersMouseClicked
+
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        app_ui_reset();
+        login_panel.setVisible(true);
+    }//GEN-LAST:event_logoutMouseClicked
 
     /**
      * @param args the command line arguments
