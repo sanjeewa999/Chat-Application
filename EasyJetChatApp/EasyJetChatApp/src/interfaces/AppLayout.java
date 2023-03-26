@@ -752,7 +752,7 @@ public class AppLayout extends javax.swing.JFrame {
                 disableMouseClicked(evt);
             }
         });
-        jPanel2.add(disable, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 60, 50));
+        jPanel2.add(disable, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 60, 50));
 
         show.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_eye_20px_1.png"))); // NOI18N
         show.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -855,7 +855,7 @@ public class AppLayout extends javax.swing.JFrame {
                 show2MouseClicked(evt);
             }
         });
-        jPanel4.add(show2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 60, 60));
+        jPanel4.add(show2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 60, 60));
 
         disable2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_invisible_20px_1.png"))); // NOI18N
         disable2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1223,7 +1223,6 @@ public class AppLayout extends javax.swing.JFrame {
         jPanel12.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
 
         msg_typer.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        msg_typer.setForeground(new java.awt.Color(255, 255, 255));
         msg_typer.setBorder(null);
         msg_typer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1805,7 +1804,7 @@ public class AppLayout extends javax.swing.JFrame {
             .addGroup(admin_panelLayout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE))
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE))
             .addGroup(admin_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(admin_panelLayout.createSequentialGroup()
                     .addGap(0, 484, Short.MAX_VALUE)
@@ -1814,8 +1813,8 @@ public class AppLayout extends javax.swing.JFrame {
         );
         admin_panelLayout.setVerticalGroup(
             admin_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(admin_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(admin_panelLayout.createSequentialGroup()
                     .addGap(0, 405, Short.MAX_VALUE)
