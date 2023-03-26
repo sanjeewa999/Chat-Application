@@ -9,14 +9,14 @@ public class ChatClient implements Serializable {
     String username;
     String nickname;
     String email;
-    //ImageIcon avatar;
+    
 
     public ChatClient(int id, String username, String nickname, String email) {
         this.id = id;
         this.username = username;
         this.nickname = nickname;
         this.email = email;
-        //this.avatar = avatar;
+       
     }
 
     int v;
@@ -36,9 +36,6 @@ public class ChatClient implements Serializable {
         return email;
     }
 
-//    public ImageIcon getAvatar() {
-//        return avatar;
-//    }
 
  
     

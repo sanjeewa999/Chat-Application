@@ -12,7 +12,7 @@ import java.awt.Toolkit;
 
 /**
  *
- * @author Sandaru
+ * @author Sanjeewa
  */
 public class Chat_ball extends javax.swing.JFrame {
 
