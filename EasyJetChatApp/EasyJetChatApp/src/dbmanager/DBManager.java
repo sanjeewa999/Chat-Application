@@ -21,7 +21,7 @@ import pojos.Users;
 
 /**
  *
- * @author Madushan
+ * @author Sanjeewa
  */
 public class DBManager {
     private static DBManager dbm;
